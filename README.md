@@ -1,1 +1,1 @@
-This is my devops project
+shell basics
