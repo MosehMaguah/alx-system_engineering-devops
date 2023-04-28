@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Disable SC2009 warning for ps command
 # shellcheck disable=SC2009
 # Display lines containing the word "bash"
