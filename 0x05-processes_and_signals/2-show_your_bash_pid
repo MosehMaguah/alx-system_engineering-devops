@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Disable SC2009 warning for ps command
+# shellcheck disable=SC2009
+# Display lines containing the word "bash"
+ps aux | grep bash
