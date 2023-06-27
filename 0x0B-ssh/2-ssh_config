@@ -1,8 +1,5 @@
 # configuring the ssh configuration file
- Host * 
-     SendEnv LANG LC_* 
-     HashKnownHosts yes 
-     GSSAPIAuthentication yes 
-     GSSAPIDelegateCredentials no 
-     IdentityFile ~/.ssh/school 
-     PasswordAuthentication no
+Host 54.196.27.23
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
