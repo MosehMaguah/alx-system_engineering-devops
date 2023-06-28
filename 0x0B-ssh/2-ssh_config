@@ -1,6 +1,5 @@
 # configuring the ssh configuration file
-Host *
-      PreferredAuthentications publickey
-      PasswordAuthentication no
-      IdentifyFile ~/.ssh/school
-      HostbasedAuthentication no
+Host 52.201.221.171
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
