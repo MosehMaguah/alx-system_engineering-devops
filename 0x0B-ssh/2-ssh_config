@@ -1,4 +1,7 @@
 # configuring the ssh configuration file
-Host *
+Host server
+      HostName 100.26.216.42
+      User ubuntu
+      PreferredAuthentications publickey
       PasswordAuthentication no
       IdentifyFile ~/.ssh/school
