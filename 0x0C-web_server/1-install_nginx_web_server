@@ -3,13 +3,13 @@
 # and print "Hello World"
 
 
-sudo apt-get update
-sudo apt-get install nginx
-sudo ufw 'Nginx HTTP'
+sudo apt-get update -y
+sudo apt-get install -y nginx
 
-echo 'Hello World!' | sudo tee /var/www/html/index.html
+# configure Nginx
+ufw allow 'Nginx HTTP'
+sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
+sudo service nginx restart
 
-# testing nginx configuration
-sudo nginx -t
-
-sudo service nginx reload
+# create index.html file served out by server:
+echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
