@@ -1,24 +1,20 @@
 #!/usr/bin/env bash
 #install ngix and have a file that returns the string "Hello World inside
 
-sudo apt-get update -y
-sudo apt-get install -y nginx
-
-#configuring Nginx
-sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
-
-# create index.html file served out by server:
-# & configures the redirection
-
-echo 'Hello World!' > /etc/nginx/html/index.html
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
 printf %s "server {
     listen 80;
     listen [::]:80 default_server;
     root   /etc/nginx/html;
     index  index.html index.htm;
     location /redirect_me {
-        return 301 https://stackoverflow.com/;
+        return 301 http://cuberule.com/;
     }
-}" > /etc/nginx/sites-available/default
-
-service nginx restart
+}"
+sudo service nginx start
+newlines="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "26i $newlines" /etc/nginx/sites-available/default
+sudo service nginx restart
+sudo service nginx reload
