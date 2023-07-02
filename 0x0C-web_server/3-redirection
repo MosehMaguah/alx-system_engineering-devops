@@ -1,20 +1,15 @@
 #!/usr/bin/env bash
-#install ngix and have a file that returns the string "Hello World inside
+# performs 301 moved permanently
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install nginx
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
-}"
-sudo service nginx start
-newlines="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "26i $newlines" /etc/nginx/sites-available/default
+sudo apt-get update
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me
+https\/\/github.com\/besthor permanent;"
+
+sudo sed -i "s/server_name _;/$string_for_replacement/"
+/etc/nginx/sites-enabled/default
+
 sudo service nginx restart
-sudo service nginx reload
