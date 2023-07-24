@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ grabbing users data using given api"""
 
 import requests as req
