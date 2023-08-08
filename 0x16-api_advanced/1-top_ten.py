@@ -11,7 +11,7 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     parameters = {'limit': 10}
     response = req.get(url, headers=headers, allow_redirects=False,
-                            params=parameters)
+                       params=parameters)
 
     if response.status_code == 200:
         titles_ = response.json().get('data').get('children')
