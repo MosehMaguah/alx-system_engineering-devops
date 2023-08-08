@@ -3,6 +3,7 @@
 
 import requests as req
 
+
 def number_of_subscribers(subreddit):
     """ this will return the number of subs of a given subreddit """
 
