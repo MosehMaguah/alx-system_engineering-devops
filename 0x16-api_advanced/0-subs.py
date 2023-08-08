@@ -5,10 +5,9 @@ import requests
 
 def number_of_subscribers(subreddit):
     """ this will return the number of subs of a given subreddit """
+
     headers = {'User-Agent': 'xica369'}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    if subreddit is None or type(subreddit) is not str:
-        return 0
     response = req.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code == 200:
